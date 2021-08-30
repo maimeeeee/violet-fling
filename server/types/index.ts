@@ -7,3 +7,9 @@ export type UserInfo = {
 export type AuthHeader = {
   authorization: string
 }
+
+export type FileInfo = {
+  id: string
+  name: string
+  filetype: string
+}

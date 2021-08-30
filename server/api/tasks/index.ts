@@ -14,3 +14,7 @@ export type Methods = {
     resBody: Task
   }
 }
+
+{
+  ;('TEST')
+}
