@@ -3,23 +3,20 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="container"
+    class="Container-sc-43yzvd-0 dVSdUP"
   >
     <main
-      class="main"
+      class="StyledMain-sc-43yzvd-1 mMuSq"
     >
       <div
-        class="userBanner"
+        class="Container-sc-o2zdss-0 hgsMPa"
       >
         <button>
           Google LOGIN
         </button>
-        <button>
-          GitHub LOGIN
-        </button>
       </div>
       <h1
-        class="title"
+        class="Title-sc-43yzvd-2 jMLCrV"
       >
         Welcome to 
         <a
@@ -28,11 +25,10 @@ exports[`Home page matches snapshot 1`] = `
           Next.js!
         </a>
       </h1>
-      <button
-        class="btn-blue"
-      >
-        frourio-todo-app
-      </button>
+      <span
+        class="sc-bdfBQB bSDfGC"
+        size="16"
+      />
       <div>
         <form
           style="text-align: center;"
@@ -47,7 +43,7 @@ exports[`Home page matches snapshot 1`] = `
           />
         </form>
         <ul
-          class="tasks"
+          class="Tasks-sc-43yzvd-3 izlyjp"
         >
           <li>
             <label>
@@ -59,11 +55,15 @@ exports[`Home page matches snapshot 1`] = `
               </span>
             </label>
             <input
-              style="float: right;"
+              class="StyledInput-sc-43yzvd-4 dJjLOz"
               type="button"
               value="DELETE"
             />
           </li>
+          <span
+            class="sc-bdfBQB hNoJZG"
+            size="12"
+          />
           <li>
             <label>
               <input
@@ -75,7 +75,7 @@ exports[`Home page matches snapshot 1`] = `
               </span>
             </label>
             <input
-              style="float: right;"
+              class="StyledInput-sc-43yzvd-4 dJjLOz"
               type="button"
               value="DELETE"
             />
@@ -84,7 +84,7 @@ exports[`Home page matches snapshot 1`] = `
       </div>
     </main>
     <footer
-      class="footer"
+      class="StyledFooter-sc-43yzvd-5 MAqtv"
     >
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -94,7 +94,7 @@ exports[`Home page matches snapshot 1`] = `
         Powered by 
         <img
           alt="Vercel Logo"
-          class="logo"
+          class="Logo-sc-43yzvd-6 lmsmDN"
           src="/vercel.svg"
         />
       </a>
