@@ -1,13 +1,11 @@
-import { depend } from 'velona'
 import { PrismaClient } from '@prisma/client'
-import type { FileTree, Prisma } from '$prisma/client'
+import type { FileTree } from '$prisma/client'
 
 const prisma = new PrismaClient()
 
-export const getFiles = depend(
-  { prisma: prisma as { filetree: { findMany(): Promise<FileTree[]> } } },
-  async ({ prisma }, limit?: number) => (await prisma.filetree.findMany()).slice(0, limit)
-)
+export const getFiles = () => {
+  return prisma.fileTree.findMany()
+}
 
 export const createFileTree = (filename: FileTree['filename'], parentid: FileTree['parentid']) =>
   prisma.fileTree.create({ data: { filename: filename, parentid: parentid } })

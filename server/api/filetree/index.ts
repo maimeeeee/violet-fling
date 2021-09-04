@@ -5,4 +5,7 @@ export type Methods = {
     reqBody: Pick<FileTree, 'filename' | 'parentid'>
     resbody: FileTree
   }
+  get: {
+    resBody: FileTree[]
+  }
 }
