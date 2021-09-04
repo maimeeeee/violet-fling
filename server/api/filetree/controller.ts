@@ -7,6 +7,6 @@ export default defineController(() => ({
   },
   post: async ({ body }) => ({
     status: 201,
-    body: await createFileTree(body.filename, body.parentid),
+    body: await createFileTree(body.contentname, body.parentid),
   }),
 }))

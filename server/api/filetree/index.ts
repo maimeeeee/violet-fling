@@ -2,7 +2,7 @@ import type { FileTree } from '$prisma/client'
 
 export type Methods = {
   post: {
-    reqBody: Pick<FileTree, 'filename' | 'parentid'>
+    reqBody: Pick<FileTree, 'contentname' | 'parentid'>
     resbody: FileTree
   }
   get: {

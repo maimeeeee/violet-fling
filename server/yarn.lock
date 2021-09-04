@@ -120,7 +120,7 @@
   dependencies:
     debug "^4.1.1"
 
-"@prisma/client@^2.30.0":
+"@prisma/client@2.30.0":
   version "2.30.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.30.0.tgz#b0ed9db67405f619e428577f2d45843104142e00"
   integrity sha512-tjJNHVfgyNOwS2F+AkjMMCJGPnXzHuUCrOnAMJyidAu4aNzxbJ8jWwjt96rRMpyrg9Hwen3xqqQ2oA+ikK7nhQ==
@@ -2852,7 +2852,7 @@ pretty-format@^27.0.0, pretty-format@^27.1.0:
     ansi-styles "^5.0.0"
     react-is "^17.0.1"
 
-prisma@^2.30.0:
+prisma@2.30.0:
   version "2.30.0"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-2.30.0.tgz#5b12091c480d538540b898d364b73651d44b4a01"
   integrity sha512-2XYpSibcVpMd1JDxYypGDU/JKq0W2f/HI1itdddr4Pfg+q6qxt/ItWKcftv4/lqN6u/BVlQ2gDzXVEjpHeO5kQ==
