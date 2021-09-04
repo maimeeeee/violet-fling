@@ -1,5 +1,5 @@
-import { defineController } from './$relay'
 import { createFileTree, getFiles } from '$/service/filetree'
+import { defineController } from './$relay'
 
 export default defineController(() => ({
   get: async () => {
