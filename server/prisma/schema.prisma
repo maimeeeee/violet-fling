@@ -13,8 +13,19 @@ model Task {
   done  Boolean @default(false)
 }
 
-model FileTree {
-  id Int @id @default(autoincrement())
+model FileInfo {
+  id          Int        @id @default(autoincrement())
   contentname String
-  parentid Int? 
+  deleted     Boolean    @default(false)
+  manage      FileManage @relation(fields: [manageid],references: [id])
+  manageid    Int
 }
+
+model FileManage{
+  id       Int           @id @default(autoincrement())
+  parentid Int
+  position Int
+  depth    Int
+  fileinfo FileInfo[]
+}
+

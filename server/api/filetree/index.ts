@@ -1,11 +1,11 @@
-import type { FileTree } from '$prisma/client'
+import { FileInfo, FileManage } from '$prisma/client'
 
 export type Methods = {
   post: {
-    reqBody: Pick<FileTree, 'contentname' | 'parentid'>
-    resbody: FileTree
+    reqBody: Pick<FileManage, 'parentid'> & Pick<FileInfo, 'contentname'>
+    resbody: FileManage
   }
   get: {
-    resBody: FileTree[]
+    resBody: (FileManage & { fileinfo: FileInfo[] })[]
   }
 }
