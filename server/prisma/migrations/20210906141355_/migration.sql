@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `FileManage` MODIFY `parentid` INTEGER NOT NULL DEFAULT 0,
+    MODIFY `depth` INTEGER NOT NULL DEFAULT 0;

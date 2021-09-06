@@ -23,9 +23,9 @@ model FileInfo {
 
 model FileManage{
   id       Int           @id @default(autoincrement())
-  parentid Int
+  parentid Int           @default(0)
   position Int
-  depth    Int
+  depth    Int           @default(0)
   fileinfo FileInfo[]
 }
 

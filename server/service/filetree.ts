@@ -10,17 +10,29 @@ const getPosition = async (parentid: number) => {
       parentid: parentid,
     },
   })
-  return position[0]?.parentid ?? 0
+  console.log('Max Position: ', position)
+  return position[0]?._max?.position ?? 0
+}
+const getParentDepth = async (parentid: number) => {
+  const parentDepth = await prisma.fileManage.findFirst({
+    where: {
+      id: parentid,
+    },
+  })
+  return parentDepth?.depth ?? 0
 }
 const getDepth = async (parentid: number) => {
-  const depth = await prisma.fileManage.groupBy({
-    by: ['parentid'],
-    _max: { depth: true },
+  const depth = await prisma.fileManage.findFirst({
     where: {
       parentid: parentid,
     },
   })
-  return depth[0]?.parentid ?? 0
+  const calcDepth = depth?.depth
+    ? depth.depth
+    : parentid !== 0
+    ? (await getParentDepth(parentid)) + 1
+    : 0
+  return calcDepth
 }
 export const getFiles = async () => {
   const filemanage = await prisma.fileManage.findMany({
@@ -35,14 +47,11 @@ export const createFileTree = async (
   contentname: FileInfo['contentname'],
   parentid: FileManage['parentid']
 ) => {
-  const maxPosition = (await getPosition(parentid)) + 1
-  const depth = await getDepth(parentid)
-  console.log('log ', parentid, 'name? ', contentname)
   const newfile = await prisma.fileManage.create({
     data: {
       parentid: parentid,
-      position: maxPosition,
-      depth: depth,
+      position: (await getPosition(parentid)) + 1,
+      depth: await getDepth(parentid),
       fileinfo: {
         create: { contentname: contentname },
       },
