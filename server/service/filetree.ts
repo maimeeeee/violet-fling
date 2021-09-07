@@ -39,6 +39,9 @@ export const getFiles = async () => {
     include: {
       fileinfo: true,
     },
+    orderBy: {
+      id: 'asc',
+    },
   })
   return filemanage
 }

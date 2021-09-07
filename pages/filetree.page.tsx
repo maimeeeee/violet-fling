@@ -25,6 +25,7 @@ const FileView = () => {
   const { api, onErr } = useApi()
   const { data: content, error, mutate } = useAspidaSWR(api.filetree)
   const [contentname, setContentname] = useState('')
+  const [indent, setIndent] = useState(0)
   if (!content) return <Fetching error={error} />
 
   return (
@@ -32,7 +33,7 @@ const FileView = () => {
       <Content>
         {content.map((m, i) => (
           <React.Fragment key={m.id}>
-            <li>
+            <li style={{ marginLeft: m.depth * 8 }}>
               <span>{m.fileinfo[0].contentname}</span>
             </li>
           </React.Fragment>
