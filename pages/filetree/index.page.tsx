@@ -1,5 +1,5 @@
 import useAspidaSWR from '@aspida/swr'
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Fetching } from '~/components/organisms/Fetching'
 import { useApi } from '~/hooks'
@@ -18,20 +18,18 @@ const Content = styled.ul`
   padding: 0;
   margin: 20px auto 0;
   text-align: left;
-  list-style-type: none;
+  list-style-type: snone;
 `
 
 const FileView = () => {
-  const { api, onErr } = useApi()
-  const { data: content, error, mutate } = useAspidaSWR(api.filetree)
-  const [contentname, setContentname] = useState('')
-  const [indent, setIndent] = useState(0)
+  const { api } = useApi()
+  const { data: content, error } = useAspidaSWR(api.filetree)
   if (!content) return <Fetching error={error} />
 
   return (
     <TreeContainer>
       <Content>
-        {content.map((m, i) => (
+        {content.map((m) => (
           <React.Fragment key={m.id}>
             <li style={{ marginLeft: m.depth * 8 }}>
               <span>{m.fileinfo[0].contentname}</span>
