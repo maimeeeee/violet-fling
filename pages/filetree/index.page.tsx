@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Fetching } from '~/components/organisms/Fetching'
 import { useApi } from '~/hooks'
+import type { BaseContent } from '~/server/types'
+import { ContentField } from './component/Content'
 
 const TreeContainer = styled.div`
   display: flex;
@@ -23,19 +25,23 @@ const Content = styled.ul`
 
 const FileView = () => {
   const { api } = useApi()
-  const { data: content, error } = useAspidaSWR(api.filetree)
-  if (!content) return <Fetching error={error} />
+  const { data: contentData, error } = useAspidaSWR(api.filetree)
+  if (!contentData) return <Fetching error={error} />
+
+  const contentInfoList = contentData.map<BaseContent>((contents) => ({
+    type: 'content',
+    contentId: contents.id,
+    name: contents.fileinfo[0].contentname,
+    depth: contents.depth,
+    opened: false,
+    selected: false,
+    parentId: contents.parentid,
+  }))
 
   return (
     <TreeContainer>
       <Content>
-        {content.map((m) => (
-          <React.Fragment key={m.id}>
-            <li style={{ marginLeft: m.depth * 8 }}>
-              <span>{m.fileinfo[0].contentname}</span>
-            </li>
-          </React.Fragment>
-        ))}
+        <ContentField baseContentList={contentInfoList} />
       </Content>
     </TreeContainer>
   )
