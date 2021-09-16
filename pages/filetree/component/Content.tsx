@@ -19,7 +19,7 @@ export const ContentField = ({ baseContentList }: { baseContentList: BaseContent
         <React.Fragment key={content.contentId}>
           <ContentName name={content.name} depth={content.depth} />
           {/* {leafs.map((c, i) => (
-            <ChildrenField key={i} serverContentData={c} />
+            <NestField key={i} baseContents={c} />
           ))} */}
         </React.Fragment>
       ))}

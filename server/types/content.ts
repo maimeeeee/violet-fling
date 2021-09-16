@@ -6,15 +6,15 @@ export type RootContent = {
   opened: boolean
   selected: boolean
 }
-export type RoopContent = {
-  type: 'dir'
+export type NestContent = {
+  type: 'child'
   contentId: number
   name: string
   depth: number
   opened: boolean
   selected: boolean
   parentId: number
-  children: (RoopContent | BaseContent)[]
+  children: (NestContent | BaseContent)[]
 }
 export type BaseContent = {
   type: 'content'
