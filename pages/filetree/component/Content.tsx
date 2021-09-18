@@ -1,10 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
 import type { BaseContent, RootContent } from '~/server/types'
 import { ContentName } from './ContentName'
 
-export const ContentField = ({ baseContentList }: { baseContentList: BaseContent[] }) => {
-  const roots = baseContentList.filter((data) => data.depth === 0)
-  const leafs = baseContentList.filter((data) => data.depth !== 0)
+const SubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 0.5rem;
+`
+
+export const ContentField = ({ baseContents }: { baseContents: BaseContent[] }) => {
+  const roots = baseContents.filter((data) => data.depth === 0)
   const rootContents = roots.map<RootContent>((c) => ({
     type: 'root',
     contentId: c.contentId,
@@ -14,15 +21,12 @@ export const ContentField = ({ baseContentList }: { baseContentList: BaseContent
     selected: false,
   }))
   return (
-    <div>
+    <SubContainer>
       {rootContents.map((content: RootContent) => (
         <React.Fragment key={content.contentId}>
           <ContentName name={content.name} depth={content.depth} />
-          {/* {leafs.map((c, i) => (
-            <NestField key={i} baseContents={c} />
-          ))} */}
         </React.Fragment>
       ))}
-    </div>
+    </SubContainer>
   )
 }

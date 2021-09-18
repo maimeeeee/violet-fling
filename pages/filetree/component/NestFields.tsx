@@ -24,9 +24,7 @@ export const NestField = ({ baseContents }: { baseContents: BaseContent[] }) => 
   return (
     <div>
       {nestWorks.map((content) => (
-        <React.Fragment key={content.contentId}>
-          <ContentName name={content.name} depth={content.depth} />
-        </React.Fragment>
+        <ContentName key={content.contentId} name={content.name} depth={content.depth} />
       ))}
     </div>
   )
