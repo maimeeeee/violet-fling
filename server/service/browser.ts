@@ -3,6 +3,7 @@ import type {
   ApiProject,
   ApiRevision,
   DeskId,
+  MessageId,
   ProjectId,
   RevisionId,
   WorkId,
@@ -63,7 +64,17 @@ const desks: { projectId: ProjectId; desks: ApiDesk[] }[] = [
 ]
 
 const revisionsList: { projectId: ProjectId; workId: WorkId; revisions: ApiRevision[] }[] = [
-  { projectId: projects[0].id, workId: 'work_1' as WorkId, revisions: [] },
+  {
+    projectId: projects[0].id,
+    workId: 'work_1' as WorkId,
+    revisions: [
+      {
+        id: 'revision_123456' as RevisionId,
+        editions: [],
+        messages: [{ id: 'message_1' as MessageId }],
+      },
+    ],
+  },
   { projectId: projects[0].id, workId: 'work_2' as WorkId, revisions: [] },
   { projectId: projects[0].id, workId: 'work_3' as WorkId, revisions: [] },
   { projectId: projects[0].id, workId: 'work_4' as WorkId, revisions: [] },
@@ -88,6 +99,7 @@ export const createRevision = (workId: WorkId) => {
   const newRevision: ApiRevision = {
     id: `${workId}-${revisions.length}` as RevisionId,
     editions: [],
+    messages: [],
   }
   revisions.push(newRevision)
 
